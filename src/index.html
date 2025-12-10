@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartTodo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body data-theme="light">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🧠</div>
+        <div>
+          <h1>SmartTodo</h1>
+          <p>Plan. Track. Level up.</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="voiceBtn" class="ghost" title="Voice input">🎤 Voice</button>
+        <select id="themeSelect" title="Unlockable themes"></select>
+        <button id="themeToggle" class="ghost" title="Toggle light/dark">🌗</button>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <p class="label">Level</p>
+        <p class="value"><span id="levelValue">1</span></p>
+      </div>
+      <div class="stat">
+        <p class="label">XP</p>
+        <div class="progress">
+          <div id="xpBar" class="bar"></div>
+        </div>
+        <p class="value" id="xpText">0 / 100</p>
+      </div>
+      <div class="stat">
+        <p class="label">Completion</p>
+        <div class="progress">
+          <div id="completionBar" class="bar"></div>
+        </div>
+        <p class="value" id="completionText">0%</p>
+      </div>
+      <div class="stat">
+        <p class="label">Motivation</p>
+        <p id="motivation" class="value">Ready to focus.</p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <form id="taskForm" class="card">
+        <div class="form-grid">
+          <label>
+            <span>Task</span>
+            <input id="titleInput" required placeholder="e.g., Prep weekly report" />
+          </label>
+          <label>
+            <span>Category</span>
+            <input id="categoryInput" placeholder="Work, Personal, Study..." />
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="priorityInput">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <label>
+            <span>Due date</span>
+            <input type="date" id="dueInput" />
+          </label>
+          <label class="wide">
+            <span>Subtasks (one per line)</span>
+            <textarea id="subtaskInput" rows="2" placeholder="Write intro\nAdd charts"></textarea>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary">Add task</button>
+          <p class="hint">LocalStorage keeps tasks safe. Voice input fills the title.</p>
+        </div>
+      </form>
+
+      <div class="card filters">
+        <input id="searchInput" placeholder="Search tasks..." />
+        <select id="categoryFilter">
+          <option value="all">All categories</option>
+        </select>
+        <select id="priorityFilter">
+          <option value="all">All priority</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <select id="viewFilter" title="Time scope">
+          <option value="all">All time</option>
+          <option value="today">Today</option>
+          <option value="week">This week</option>
+          <option value="month">This month</option>
+          <option value="overdue">Overdue</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="tasks card">
+      <div class="section-head">
+        <h2>Tasks</h2>
+        <p class="hint">Drag to reorder. Color shows priority.</p>
+      </div>
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
