@@ -2,7 +2,7 @@
 A smart, modern, and powerful To-Do List application built using **HTML, CSS, and JavaScript**.  
 SmartTodo combines productivity, habit-tracking, deadlines, priorities, and a beautiful UI into one clean tool.
 
----
+
 
 ## 🚀 Features
 
@@ -36,5 +36,4 @@ SmartTodo combines productivity, habit-tracking, deadlines, priorities, and a be
 - Light & Dark mode toggle  
 - Fully responsive design
 
----
 
